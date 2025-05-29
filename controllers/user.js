@@ -2,12 +2,12 @@ const User = require("../models/User");
 
 exports.createUser = async (req, res) => {
   try {
-    const { name, email, password, profilepic } = req.body;
-    const newuser = await UserSchema.create({
+    const { name, email, password, profilePicture } = req.body;
+    const newuser = await User.create({
       name,
       email,
       password,
-      profilepic,
+      profilePicture,
     });
     res.status(200).json({ success: true, data: newuser });
   } catch (err) {

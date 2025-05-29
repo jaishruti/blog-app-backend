@@ -15,6 +15,7 @@ yarn-error.log*
 # Database & MongoDB-related files
 data/
 dump/
+build/
 
 # System files
 .DS_Store
@@ -29,3 +30,11 @@ Thumbs.db
 dist/
 .cache/
 coverage/
+
+WiredTiger*
+_mdb_catalog.wt
+collection-*.wt
+diagnostic.data/
+journal/
+mongod.lock
+storage.bson

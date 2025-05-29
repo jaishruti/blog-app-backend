@@ -14,3 +14,8 @@ app.use("/api/v1/user", require("./routes/userRoutes"));
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server runnig on port ${PORT}`));
+
+//default Route
+app.get("/", (req, res) => {
+  res.send(`<h1> This is HOME for bLOG</h1>`);
+});
