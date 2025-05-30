@@ -11,6 +11,7 @@ connectDB();
 
 // mount to routes
 app.use("/api/v1/user", require("./routes/userRoutes"));
+app.use("/api/v1/blog", require("./routes/blogRoutes"));
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server runnig on port ${PORT}`));
