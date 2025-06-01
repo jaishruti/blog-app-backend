@@ -51,3 +51,24 @@ exports.likeUnlikeBlogPost = async (req, res) => {
     res.status(500).json({ success: false, message: err.message });
   }
 };
+
+exports.commentPost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { userId, comment } = req.body;
+    const post = await Blog.findById(id);
+    console.log(post, id);
+    if (!post)
+      return res
+        .status(404)
+        .json({ success: false, message: "post not found" });
+    console.log(post.comments);
+    post.comments.push({ user: userId, text: comment });
+    await post.save();
+    return res
+      .status(200)
+      .json({ success: true, message: "comment successful" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};

@@ -17,10 +17,15 @@ const BlogSchema = new mongoose.Schema({
   //multiple users can like
   likes: { type: [mongoose.Schema.Types.ObjectId], ref: "User", default: [] },
   comments: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: "Comment",
+    type: [
+      {
+        user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+        text: { type: String, required: true },
+      },
+    ],
     default: [],
   },
+
   createdAt: { type: Date, default: Date.now },
 });
 
